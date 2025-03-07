@@ -28,7 +28,7 @@ twitter_username: jekyllrb
 github_username:  Kermit9909
 
 # Build settings
-theme: "minimal-mistakes"
+theme: minimal-mistakes
 plugins:
   - jekyll-feed
 
