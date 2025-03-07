@@ -28,7 +28,7 @@ twitter_username: kermit9909
 github_username:  Kermit9909
 
 # Build settings
-theme: minimal-mistakes
+theme: jekyll-theme-caymen
 plugins:
   - jekyll-feed
 
