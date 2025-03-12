@@ -1,0 +1,11 @@
+main:
+  - title: "IT Helpdesk"
+    url: "/categories/it-helpdesk/"
+  - title: "Security"
+    url: "/categories/security/"
+  - title: "Networking"
+    url: "/categories/networking/"
+  - title: ".gov"
+    url: "/categories/gov/"
+  - title: "Home"
+    url: "/"

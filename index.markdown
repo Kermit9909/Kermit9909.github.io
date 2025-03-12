@@ -1,6 +1,11 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
+title: "Kermit's Blog"
+excerpt: "Exploring IT networking, security skills, and government security news."
+header:
+  image: "assets/images/hero-image.jpg"  # No leading slash
+  caption: "Welcome to my blog!"
+author_profile: true
 ---
+
+Check out my latest posts below!
