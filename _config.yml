@@ -52,7 +52,7 @@ defaults:
 author:
   name: "Kermit"
   avatar: "assets/images/profile-pic.jpg"
-  bio: "IT enthusiast exploring networking, security, and government news."
+  bio: "IT enthusiast exploring tech and more."
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
@@ -64,7 +64,6 @@ author:
 # Navigation bar
 header: 
   nav: "main"
-
 sass:
   sass_dir: _sass
   style: compressed
