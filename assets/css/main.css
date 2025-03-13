@@ -4,3 +4,13 @@
     --accent: #00ff00; /* Green, adjust as needed */
     --background: #1a1a1a; /* Dark gray background */
 }
+
+/* Hero image on main page */
+.page__hero img {
+    width: 100%; /* Full-width */
+    height: 400px; /* Reduced height */
+    object-fit: cover; /* Crops image to fit, no stretching */
+    max-width: 100%; /* Ensures responsiveness */
+    display: block;
+    margin: 0 auto; /* Centers it */
+}
