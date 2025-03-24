@@ -1,0 +1,72 @@
+// Variables
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+    header h1 {
+        font-size: 2rem;
+        color: #00ff00;
+    }
+
+    header .header-image {
+        max-width: 600px;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+.intro {
+    text-align: center;
+    padding: 20px;
+}
+
+    .intro p {
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 40px;
+    justify-content: center;
+    padding: 35px;
+}
+
+.tile {
+    width: 215px;
+    height: 200px;
+    background-color: #00cc00; /* darken(#00ff00, 20%) approximated */
+    color: #fff;
+    text-align: center;
+    text-align-last: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 10px;
+    border-radius: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    transition: background-color 0.3s ease;
+}
+
+    .tile:hover {
+        background-color: #00ff00;
+    }

@@ -42,22 +42,28 @@ header {
 
 .tile-grid {
     display: grid;
-    grid-template-columns: repeat(3, 150px);
-    gap: 20px;
+    grid-template-columns: repeat(2, 200px);
+    gap: 40px;
     justify-content: center;
-    padding: 20px;
+    padding: 35px;
 }
 
 .tile {
-    width: 150px;
-    height: 150px;
+    width: 215px;
+    height: 200px;
     background-color: #00cc00; /* darken(#00ff00, 20%) approximated */
     color: #fff;
     text-align: center;
-    line-height: 150px;
+    text-align-last: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 8px;
+    font-size: 1.3rem;
+    padding: 10px;
+    border-radius: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     transition: background-color 0.3s ease;
 }
 
