@@ -1,0 +1,47 @@
+---
+layout: home
+title: "Kermit's Blog"
+excerpt: "Exploring IT networking, security skills, and government security news."
+header:
+  image: "assets/images/hero-image.jpg"  # No leading slash
+  caption: "Welcome to my blog!"
+author_profile: true
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.excerpt }}">
+</head>
+<body>
+
+  <header>
+    <img src="{{ page.header.image }}" alt="Header Image" />
+    <p>{{ page.header.caption }}</p>
+  </header>
+
+  <main>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.excerpt }}</p>
+    <p>{{ content }}</p>
+  </main>
+
+  <footer>
+    {% if page.author_profile %}
+      <section class="author-profile">
+        <img src="{{ site.author.avatar }}" alt="Author Avatar" />
+        <p>{{ site.author.bio }}</p>
+        <ul>
+          {% for link in site.author.links %}
+            <li><a href="{{ link.url }}" target="_blank"><i class="{{ link.icon }}"></i>{{ link.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+  </footer>
+
+</body>
+</html>
