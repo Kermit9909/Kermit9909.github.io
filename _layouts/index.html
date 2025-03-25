@@ -34,6 +34,7 @@ author_profile: true
       <section class="author-profile">
         <img src="{{ site.author.avatar }}" alt="Author Avatar" />
         <p>{{ site.author.bio }}</p>
+        
         <ul>
           {% for link in site.author.links %}
             <li><a href="{{ link.url }}" target="_blank"><i class="{{ link.icon }}"></i>{{ link.label }}</a></li>
@@ -42,6 +43,9 @@ author_profile: true
       </section>
     {% endif %}
   </footer>
+
+
+
 
 </body>
 </html>

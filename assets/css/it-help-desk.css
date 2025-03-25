@@ -70,3 +70,28 @@ header {
     .tile:hover {
         background-color: #00ff00;
     }
+
+    /* Home Button Container */
+.home-button-container {
+    display: flex; /* Use flexbox to center the button */
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add some space between the tiles and the button */
+}
+
+/* Home Button Styling */
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #00ff00 !important;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    color: white !important;
+    background-color: #00ff00;
+}
