@@ -1,4 +1,4 @@
-// Variables
+/* Variables */
 * {
     margin: 0;
     padding: 0;
@@ -97,6 +97,6 @@ header {
 }
 
 a:visited {
-    color: white; /* Or any other color you prefer */
+    color: white; 
 }
 
