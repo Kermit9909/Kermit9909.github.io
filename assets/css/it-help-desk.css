@@ -95,3 +95,8 @@ header {
     color: white !important;
     background-color: #00ff00;
 }
+
+a:visited {
+    color: white; /* Or any other color you prefer */
+}
+
