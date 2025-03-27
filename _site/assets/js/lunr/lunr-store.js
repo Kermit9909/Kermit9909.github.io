@@ -5,9 +5,9 @@ var store = [{
         "url": "/2025/03/03/security-commands-for-linux/",
         "teaser": null
       },{
-        "title": "Welcome to Jekyll!",
-        "excerpt":"You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when...","categories": ["jekyll","update"],
-        "tags": [],
-        "url": "/2025/03/03/welcome-to-jekyll/",
+        "title": "Top 5 Common Windows 10/11 Troubleshooting Tips for Beginners",
+        "excerpt":"Top 5 Common Windows 10/11 Troubleshooting Tips for Beginners                  *By [Your Name], IT Enthusiast       March 27, 2025*           A practical guide addressing frequent Windows issues, such as slow performance, update failures, or missing drivers. Using built-in tools like Task Manager, Disk Cleanup, or the Troubleshooter to resolve them.    ","categories": ["Windows"],
+        "tags": ["Windows 10","Windows 11","Troubleshooting","Task Manager","Disk Cleanup","Troubleshooter","IT Support"],
+        "url": "/2025/03/26/win-top5-tips/",
         "teaser": null
       }]
