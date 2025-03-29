@@ -13,6 +13,11 @@ gem "jekyll", "~> 4.4.1"
 # Mininal-mistakes theme (gem-based)
 gem "minimal-mistakes-jekyll"
 
+# Remote theme
+
+gem "jekyll-remote-theme"
+
+
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 
 
