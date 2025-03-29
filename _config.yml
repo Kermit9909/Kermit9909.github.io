@@ -36,6 +36,8 @@ plugins:
   - jekyll-include-cache
   - jekyll-remote-theme
 permalink: /:year/:month/:day/:title/
+head_scripts:
+  - /assets/css/blogs.css
 
 # Default for posts
 defaults:

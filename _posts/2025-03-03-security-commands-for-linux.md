@@ -1,10 +1,8 @@
 ---
-layout: post
+layout: single
 title: "Security Commands for Linux"
 date: 2025-03-03
 ---
-
-# **Security Commands for Linux**
 
 ## 📂 **File and Directory Management**
 

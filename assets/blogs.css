@@ -1,0 +1,21 @@
+/* assets/css/blogs.css */
+.page__content img {
+    max-width: 600px; /* Keeps your Task Manager screenshot manageable */
+    display: block;
+    margin: 20px auto; /* Centers it with space */
+    border: 1px solid #ccc; /* Subtle border */
+  }
+  .page__content h1 {
+    color: #ff4081; /* Neon pink to match the "neon" skin */
+    font-size: 2.2em;
+  }
+  .page__content pre {
+    background: #2b2b2b; /* Dark background for code, neon-friendly */
+    color: #fff; /* White text */
+    padding: 15px;
+    border-radius: 5px;
+  }
+  .page__content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+  }
