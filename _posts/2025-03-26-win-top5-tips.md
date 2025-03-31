@@ -87,13 +87,13 @@ Also, it is always good to check the Window's system files to make sure they are
 
 ---
 
-Ever had Windows Update throw a tantrum and refuse to finish? Been there. That’s when I turn to **System Restore** to rewind the clock to happier times. Search *System Restore* in the Start menu, click *Create a restore point*, then hit the *System Restore* button. Pick a date before the update madness started, follow the prompts, and let your PC reboot to a better yesterday. It won’t touch your files, but it might delete recent apps, so heads up.
+Ever had Windows Update throw a tantrum and refuse to finish? Been there. That’s when I turn to **System Restore** to rewind the clock to happier times. Search *System Restore* in the Start menu, click **Create a restore point**, then hit the **System Restore** button. Pick a date before the update madness started, follow the prompts, and let your PC reboot to a better yesterday. It won’t touch your files, but it might delete recent apps, so heads up.
 
 ![Restore Point](/assets/images/winblog/restorepoint.png)
 
 If you’re wondering how it all works, [Microsoft’s System Restore guide](https://support.microsoft.com/en-us/windows/use-system-restore-to-recover-your-pc-0d3e9708-4e5e-4c1e-9f9e-8e6d8f7e8f8d) is a solid read.
 
-Then there’s the dreaded “No Internet” icon staring at you. When my Wi-Fi drops, I head straight to **Command Prompt** for some quick fixes. Open it as Administrator (search *cmd*, right-click, *Run as Administrator*), and try this:  
+Then there’s the dreaded “No Internet” icon staring at you. When my Wi-Fi drops, I head straight to **Command Prompt** for some quick fixes. Open it as Administrator (search **cmd**, right-click, **Run as Administrator**), and try this:  
 
 ```cmd
 ipconfig /release
@@ -102,7 +102,11 @@ ipconfig /release
 ipconfig /renew
 ```
 
-This will enable your DHCP server to issue you a new IP address.  However, most internet browser isues are DNS related and the ***ipconfig** command has other options to address this as well.  Try:
+This will enable your DHCP server to issue you a new IP address. Which may help if you have an outdated or invalid IP address lease due to a DHCP glitch, your computer couldn't reach the DHCP server, or if another device accidentally got the same IP address. It happens.
+
+In addition, **ipconfig** can address DNS issues as well. 
+
+Try this:
 
 ```cmd
 ipconfig /flushdns
@@ -112,7 +116,9 @@ ipcofig /registerdns
 ```
 This will clear DNS caches, and usually works really well for browser issues.
 
-Of, course you can go simple as well.  **<Right-Click>** the Wi-Fi connection you are connected to and click **Forget** resign in and this will establish a new connection. 
+Of course, you can go simple as well.  
+
+<**Right-Click**> the Wi-Fi connection you are connected to and click **Forget** resign in and this will establish a new connection. 
 
 ![Forget Connection](/assets/images/winblog/forgetconnection.png)
 
