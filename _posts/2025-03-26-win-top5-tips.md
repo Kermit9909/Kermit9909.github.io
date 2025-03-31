@@ -3,17 +3,17 @@ layout: single
 title: "Top 5 Common Windows 10/11 Troubleshooting Tips for Beginners"
 date: 2025-03-26
 categories: [Windows]
-tags: [Windows 10, Windows 11, Troubleshooting, Task Manager, Disk Cleanup, Troubleshooter, IT Support]
+tags: [Windows 10, Windows 11, Troubleshooting, Task Manager, Disk Cleanup, Troubleshooter, IT Support, Beginners]
 excerpt: "A practical guide addressing frequent Windows issues such as slow performance and update failures."
 author: Sean Elggren
 ---
 
 *By [Sean Elggren](https://www.linkedin.com/in/sean-m-elggren-3477271a5/), IT Enthusiast | March 27, 2025*
 
-###### A practical guide addressing frequent Windows issues, such as slow performance, update failures, no network connection, or missing drivers. This article focuses on using built-in tools like Task Manager, Disk Cleanup, Windows Restore, Device Manager and commands such as: sfc /scannow, ipconfig, and nslookup.
+###### A practical guide addressing frequent Windows issues, such as slow performance, update failures, no network connection, or missing drivers. This article focuses on using built-in tools like Task Manager, Disk Cleanup, Windows Restore, Device Manager and commands such as: sfc /scannow, and ipconfig.
 
 ---
-This article is intended for anyone who is new to IT or just wanting to get there computer working to the best of its ability.  I started my IT journey a few years ago, and in hindsight I should have focused on Windows much more than I did at first. It is easy when studying for your Comptia A+ certification to get excited about Linux, and all its amazing features -especially that it is free and open source- but the world runs on Windows. However, Windows has stepped its game up over the last couple years and there are a lot of cool features to learn.  Windows has a bunch of built-in tools—like Task Manager, Disk Cleanup, System Restore, and Device Manager.  Plus some incredibly useful CMD commands like ***sfc /scannow***, ***ipconfig***, and ***nslookup***. Let’s walk through how to use these features and tools.
+This article is intended for anyone who is new to IT or just wanting to get their computer working to the best of its ability.  I started my IT journey a few years ago, and in hindsight I should have focused on Windows much more than I did at first. It is easy when studying for your CompTIA A+ certification to get excited about Linux, and all its amazing features -especially that it is free and open source- but the world runs on Windows. However, Windows has stepped its game up over the last couple years and there are a lot of cool features to learn.  Windows has a bunch of built-in tools—like Task Manager, Disk Cleanup, System Restore, and Device Manager.  Plus some incredibly useful CMD commands like ***sfc /scannow***, and ***ipconfig***. Let’s walk through how to use these features and tools.
 
 # 1. Task Manager
 
@@ -27,10 +27,12 @@ So **Processes** is the first tab that will pop up and it gives you a clear pict
 
 ### When you need to use Processes:
 
- * Most common is troubleshooting a ***frozen application***:  **<Right-Click>** the application line and `End Task`. 
+ * Most common is troubleshooting a **frozen application**:  **<Right-Click>** the application line and **End Task**. 
  * When you need to get an overview of the the system quickly.
 
- **Performance**is an amazing visual of the percentages you saw in Processes.  It gives real time computational statistics in a bar graph style that is easy to understand.  This is great to open up when you start your computer so you can see it in action.  When I can hear my computer running I like to go to Performance to see the statistics.  I have been that guy who has downloaded a malicious linux iso file.  I would here my computer just running like crazy, and Task Manager helped me see that my CPU would just start throttling for no reason.  After putting the pieces of the puzzle together I realized that I probubly had malware on my computer so I took appropriate action.  Also, if you are getting into running LLMs with Ollama, just pick a model that has roughly 7 billion or more parameters (for my laptop at least) and watch it just max out your CPU!!!!!
+ **Performance** is an amazing visual of the percentages you saw in Processes.  It gives real time computational statistics in a bar graph style that is easy to understand.  This is great to open up when you start your computer so you can see it in action.  When I can hear my computer running I like to go to **Performance** to see the statistics.  I have been that guy who has downloaded a malicious linux iso file.  I would here my computer just running like crazy, and Task Manager helped me see that my CPU would just start throttling for no reason.  After putting the pieces of the puzzle together I realized that I probably had malware on my computer so I took appropriate action.  Also, if you are getting into running LLMs with [Ollama][1], just pick a model that has roughly 7 billion or more parameters (for my laptop at least) and watch it just max out your CPU!!!!!
+
+ [1]: https://ollama.com/search
 
 ### When you need to use Performance
 
@@ -41,13 +43,13 @@ So **Processes** is the first tab that will pop up and it gives you a clear pict
  * Wi-Fi throughput in real-time, network adapter info, connection type, and IP addresses.
  * Check the GPU (Ollama!) how much, and driver versions.
 
-### What is ***App History*** about, and will I ever use it? 
+### What is **App History** about, and will I ever use it? 
 
-Good question, I have never had to use App History personally.  However, it's possible that IT technician would want to use the App History tab in Task Manager on Windows to monitor resource usage by apps over time. Mostly, for troubleshooting performance issues, identifying apps that consume excessive CPU, memory, or network resources, and diagnosing why a system might be running slowly. 
+Good question, I have never had to use App History personally.  However, it's possible that in a corporate environment would want to use the **App History** tab in Task Manager on Windows to monitor resource usage by apps over time. Mostly, for troubleshooting performance issues, identifying apps that consume excessive CPU, memory, or network resources, and diagnosing why a system might be running slowly. 
 
 ### Lets move on...
 
-The ***Users*** tab in Task Manager is a quick way to see who’s logged in, and how much CPU, memory, or disk they’re hogging —perfect for spotting a resource hog in a shared system. 
+The ***Users*** tab in Task Manager is a quick way to see who’s logged in, and how much CPU, memory, or disk space they’re hogging —perfect for spotting a resource hog in a shared system. 
 
 The ***Details*** tab dives deeper, listing every process with PIDs and user accounts, letting you kill a stubborn app or confirm what’s running where. 
 
@@ -72,7 +74,14 @@ Now, if your PC feels like it’s drowning in digital clutter, **Disk Cleanup** 
 
 ![Disk Cleanup Pic](/assets/images/winblog/diskcleanup.png)
 
+Also, it is always good to check the Window's system files to make sure they are all working properly.  Windows has a system file checker command that will repair damaged Windows files.  These are the core operating system files, not applications.  Try this command:
+
+![SFC Scan Now](/assets/images/winblog/sfcscannow.png)
+
+
  Curious about the details? [Microsoft’s Disk Cleanup page](https://support.microsoft.com/en-us/windows/free-up-drive-space-in-windows-85529ccb-c365-490d-b548-831022bc9b32) breaks it down.
+ Windows System File Checker Info: [Windows SFC](https://support.microsoft.com/en-us/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e)
+
 
 ---
 
@@ -87,6 +96,27 @@ Then there’s the dreaded “No Internet” icon staring at you. When my Wi-Fi 
 ```cmd
 ipconfig /release
 ```
+```cmd
+ipconfig /renew
+```
+
+This will enable your DHCP server to issue you a new IP address.  However, most internet browser isues are DNS related and the ***ipconfig** command has other options to address this as well.  Try:
+
+```cmd
+ipconfig /flushdns
+```
+```cmd
+ipcofig /registerdns
+```
+This will clear DNS caches, and usually works really well for browser issues.
+
+Of, course you can go simple as well.  **<Right-Click>** the Wi-Fi connection you are connected to and click **Forget** resign in and this will establish a new connection. 
+
+![Forget Connection](/assets/images/winblog/forgetconnection.png)
+
+ Also, if you are having real issues go to **Control Panel** > **Network and Internet** > **Network Connections**, <Right-Click> your internet adapter and **Disable** than **Enable** to reset the network adapter.  
+
+![Disable Adapter](/assets/images/winblog/adapter.png)
 
 
 
