@@ -17,7 +17,7 @@ This article is intended for anyone who is new to IT or just wanting to get thei
 
 # 1. Task Manager
 
-Picture this: your laptop’s chugging along slower than a Monday morning, and you’re wondering what’s eating up all the juice. That’s when I pull up **Task Manager**, my go-to for sniffing out troublemakers. Just hit ***Ctrl + Shift + Esc***—bam, it’s open—or right-click the taskbar and pick it from the menu.
+Picture this: your laptop’s chugging along slower than a Monday morning, and you’re wondering what’s eating up all the juice. That’s when I pull up **Task Manager**, my go-to for sniffing out troublemakers. Just hit **<Ctrl + Shift + Esc>**—bam, it’s open—or right-click the taskbar and pick it from the menu.
 
 ![Task Manager Screenshot](/assets/images/winblog/taskmanager.png)
 
@@ -27,18 +27,18 @@ So **Processes** is the first tab that will pop up and it gives you a clear pict
 
 ### When you need to use Processes:
 
- * Most common is troubleshooting a **frozen application**:  **<Right-Click>** the application line and **End Task**. 
+ * Most common is troubleshooting a **frozen application**.  **<Right-Click\>** the application line and **End Task**. 
  * When you need to get an overview of the the system quickly.
 
- **Performance** is an amazing visual of the percentages you saw in Processes.  It gives real time computational statistics in a bar graph style that is easy to understand.  This is great to open up when you start your computer so you can see it in action.  When I can hear my computer running I like to go to **Performance** to see the statistics.  I have been that guy who has downloaded a malicious linux iso file.  I would here my computer just running like crazy, and Task Manager helped me see that my CPU would just start throttling for no reason.  After putting the pieces of the puzzle together I realized that I probably had malware on my computer so I took appropriate action.  Also, if you are getting into running LLMs with [Ollama][1], just pick a model that has roughly 7 billion or more parameters (for my laptop at least) and watch it just max out your CPU!!!!!
+ **Performance** is an amazing visual of the percentages you saw in Processes.  It gives real time computational statistics in a bar graph style that is easy to understand.  This is great to open up when you start your computer so you can see it in action.  When I can hear my computer running I like to go to **Performance** to see the statistics.  I have been that guy who has downloaded a malicious linux iso file.  I would hear my computer just running like crazy, and Task Manager helped me see that my CPU would just start throttling for no reason.  After putting the pieces of the puzzle together I realized that I probably had malware on my computer so I took appropriate action.  Also, if you are getting into running LLMs with [Ollama][1], just pick a model that has roughly 7 billion or more parameters (for my laptop at least) and watch it just max out your CPU!!!!!
 
  [1]: https://ollama.com/search
 
 ### When you need to use Performance
 
- * Check CPU usage, uptime, speed, and specs
- * Find out how much memory the system has, how much in use, cached and hardware form factors.
- * Disk transfer rate and capacity
+ * Check CPU usage, uptime, speed, and specs.
+ * Find out how much memory the system has, how much in use, memory cached and hardware form factors.
+ * Disk transfer rate and capacity.
  * Ethernet IPv4 / IPv6 addresses, performance, transfer rates.
  * Wi-Fi throughput in real-time, network adapter info, connection type, and IP addresses.
  * Check the GPU (Ollama!) how much, and driver versions.
@@ -53,7 +53,7 @@ The ***Users*** tab in Task Manager is a quick way to see who’s logged in, and
 
 The ***Details*** tab dives deeper, listing every process with PIDs and user accounts, letting you kill a stubborn app or confirm what’s running where. 
 
-Lastly, the ***Services*** tab shows background system tasks (like Windows Update), offering stop/start/restart options without leaving the window. However, if you **<Right-Click**> the service you can open it in Window's designated **Services** setting (services.msc)
+Lastly, the ***Services*** tab shows background system tasks (like Windows Update), offering stop/start/restart options without leaving the window. However, if you **Right-Click** the service you can open it in Window's designated **Services** setting (services.msc)
 
 ![Services Screenshot](/assets/images/winblog/services.png)
 
@@ -61,16 +61,18 @@ Check out this quick video, [Microsoft’s Task Manager guide](https://learn.mic
 
 # 2. Device Manager
 
- For hardware troubleshooting, though, Device Manager still is the go to.  Just type Device Manager in the search bar from the desktop, or go to acces it by typing `devmgnt.msc` into the run command window.
+ For hardware troubleshooting, though, Device Manager still is the go to.  Just type Device Manager in the search bar from the desktop, or go to acces it by typing **devmgnt.msc** into the run command window.
 
- I once had my little brother sync his Meta Quest headset to my mother's PC and it completely took over the audio inputs and ouputs controls.  My mother had an interview for a job and she asked me why she could not get audio and video to work on her PC.  So, I went to ***Device Manager*** as uninstalled all the Meta devices.  However, Meta removed her 'Microphone Array (Realtek(R) Audio) and Speaker (Realtek(r) Audio) for Device Manager!  Needless to say, this took some Windows troubleshooting skills and I was grateful for my training for my A+ cert.  I would have to go into ***Control Panel*** and enable all the devices from their so they would be recognized by device manager again.   
+ I once had my little brother sync his Meta Quest headset to my mother's PC and it completely took over the audio input and ouput controls.  My mother had an remote interview for a job and she asked me why she could not get audio and video to work on her PC.  So, I went to ***Device Manager*** as uninstalled all the Meta devices.  However, Meta removed her 'Microphone Array (Realtek(R) Audio), and Speaker (Realtek(r) Audio) for Device Manager!  Needless to say, this took some Windows troubleshooting skills and I was grateful for my training for my A+ cert.  I would have to go into ***Control Panel*** and enable all the devices from their so they would be recognized by **Device Manager** again.   
 
  ![Device Manager Screenshot](/assets/images/winblog/devicemanager.png)
 
 Bonus tip: Refresh the view with Action > Scan for hardware changes if something’s not showing up. Want to learn more? Microsoft’s [Device Manager](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager) guide has you covered.
 
 
-Now, if your PC feels like it’s drowning in digital clutter, **Disk Cleanup** is your broom and dustpan. I’ve let temporary files and old update leftovers pile up before—oops—and this tool sweeps them away. Press **<Win + R**>, type ```cmd cleanmgr ```, and hit Enter. Pick your main drive (usually `C:`), check off things like *Temporary Files* or *Recycle Bin*, and let it rip with *OK* and *Delete Files*. Bonus tip: run it as Administrator (right-click Command Prompt, choose *Run as Administrator*) to unlock extra cleanup power.
+Now, if your PC feels like it’s drowning in digital clutter, **Disk Cleanup** is your broom and dustpan. I’ve let temporary files and old update leftovers pile up before—oops—and this tool sweeps them away. Press **<Win + R**>, type **<cmd cleanmgr>**, and hit Enter. Pick your main drive (usually `C:`), check off things like *Temporary Files* or *Recycle Bin*, and let it rip with *OK* and *Delete Files*.
+
+Bonus tip: run it as Administrator (right-click Command Prompt, choose *Run as Administrator*) to unlock extra cleanup power.
 
 ![Disk Cleanup Pic](/assets/images/winblog/diskcleanup.png)
 
