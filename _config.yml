@@ -28,7 +28,7 @@ twitter_username: Kermit9909
 github_username:  Kermit9909
 
 # Theme settings
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: mmistakes/minimal-mistakes@4.26.2
 minimal_mistakes_skin: "neon"
 plugins:
   - jekyll-feed
@@ -39,6 +39,17 @@ permalink: /:year/:month/:day/:title/
 head_scripts:
   - /assets/css/blogs.css
 
+# Markdown and highlighting
+markdown: kramdown
+highlighter: rouge
+enable_copy_code_button: true
+kramdown:
+  input: GFM  # GitHub Flavored Markdown for fenced code blocks
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
 # Default for posts
 defaults:
   - scope:
@@ -48,7 +59,7 @@ defaults:
       layout: "single"
       author_profile: true
       read_time: true
-      share: true
+      share: false
       related: true
 
 # Author profile for sidebar
