@@ -95,12 +95,9 @@ If you’re wondering how it all works, [Microsoft’s System Restore guide](htt
 
 Then there’s the dreaded “No Internet” icon staring at you. When my Wi-Fi drops, I head straight to **Command Prompt** for some quick fixes. Open it as Administrator (search **cmd**, right-click, **Run as Administrator**), and try this:  
 
-```cmd
-ipconfig /release
-```
-```cmd
-ipconfig /renew
-```
+<img src="/assets/images/winblog/iprelease.png" alt="ipconfig /release" width="500" style="display: inline-block; margin: 0;">
+<img src="/assets/images/winblog/iprenew.png" alt="ipconfig /renew" width="500" style="display: inline-block; margin: 0;">
+
 
 This will enable your DHCP server to issue you a new IP address. Which may help if you have an outdated or invalid IP address lease due to a DHCP glitch, your computer couldn't reach the DHCP server, or if another device accidentally got the same IP address. It happens.
 
@@ -108,12 +105,11 @@ In addition, **ipconfig** can address DNS issues as well.
 
 Try this:
 
-```cmd
-ipconfig /flushdns
-```
-```cmd
-ipcofig /registerdns
-```
+<img src="/assets/images/winblog/flushdns.png" alt="ipconfig /flushdns" height="1000">
+
+<img src="/assets/images/winblog/registerdns.png" alt="ipconfig /registerdns" height="1000">
+
+
 This will clear DNS caches, and usually works really well for browser issues.
 
 Of course, you can go simple as well.  
@@ -122,7 +118,7 @@ Of course, you can go simple as well.
 
 ![Forget Connection](/assets/images/winblog/forgetconnection.png)
 
- Also, if you are having real issues go to **Control Panel** > **Network and Internet** > **Network Connections**, <Right-Click> your internet adapter and **Disable** than **Enable** to reset the network adapter.  
+ Also, if you are having real issues go to **Control Panel** > **Network and Internet** > **Network Connections**, right-click your internet adapter and **Disable** than **Enable** to reset the network adapter.  
 
 ![Disable Adapter](/assets/images/winblog/adapter.png)
 
