@@ -95,8 +95,11 @@ If you’re wondering how it all works, [Microsoft’s System Restore guide](htt
 
 Then there’s the dreaded “No Internet” icon staring at you. When my Wi-Fi drops, I head straight to **Command Prompt** for some quick fixes. Open it as Administrator (search **cmd**, right-click, **Run as Administrator**), and try this:  
 
-<img src="/assets/images/winblog/iprelease.png" alt="ipconfig /release" width="500" style="display: inline-block; margin: 0;">
-<img src="/assets/images/winblog/iprenew.png" alt="ipconfig /renew" width="500" style="display: inline-block; margin: 0;">
+![ipconfig /release](/assets/images/winblog/iprelease.png)
+
+![ipconfig /renew](/assets/images/winblog/iprenew.png)
+
+
 
 
 This will enable your DHCP server to issue you a new IP address. Which may help if you have an outdated or invalid IP address lease due to a DHCP glitch, your computer couldn't reach the DHCP server, or if another device accidentally got the same IP address. It happens.
