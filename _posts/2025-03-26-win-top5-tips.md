@@ -108,9 +108,9 @@ In addition, **ipconfig** can address DNS issues as well.
 
 Try this:
 
-<img src="/assets/images/winblog/flushdns.png" alt="ipconfig /flushdns" height="1000">
+![ipconfig /flushdns](/assets/images/winblog/ipflushdns2.png)
 
-<img src="/assets/images/winblog/registerdns.png" alt="ipconfig /registerdns" height="1000">
+![ipconfig /registerdns](/assets/images/winblog/ipregister.png)
 
 
 This will clear DNS caches, and usually works really well for browser issues.
