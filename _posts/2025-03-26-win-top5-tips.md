@@ -125,5 +125,10 @@ Of course, you can go simple as well.
 
 ![Disable Adapter](/assets/images/winblog/adapter.png)
 
+Hopefully, this information was informative and inspired someone to spend more time on Windows, learn CMD, feel more comfortable on a terminal, or at least made someone say to themselves, "If he can do it, so can I."  
+
+Happy Learning!!!
+
+
 
 
