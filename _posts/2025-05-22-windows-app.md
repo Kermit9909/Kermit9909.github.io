@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "What’s New with the Windows App: Replacing Remote Desktop in 2025"
+date: 2025-05-23
 categories: [Windows, IT Support]
 tags: [Remote Desktop, Windows App, Microsoft 365, Azure Virtual Desktop, IT Help Desk]
 author_profile: true
