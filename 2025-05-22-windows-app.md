@@ -6,6 +6,8 @@ tags: [Remote Desktop, Windows App, Microsoft 365, Azure Virtual Desktop, IT Hel
 author_profile: true
 ---
 
+*By [Sean Elggren](https://www.linkedin.com/in/sean-m-elggren-3477271a5/), IT Enthusiast | May 22, 2025*
+
 > Microsoft is officially saying goodbye to the Remote Desktop app—and IT teams everywhere are taking notice.
 
 ## A Big Shift in Remote Access: Introducing the Windows App
