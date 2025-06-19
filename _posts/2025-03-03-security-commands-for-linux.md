@@ -2,159 +2,239 @@
 layout: single
 title: "Security Commands for Linux"
 date: 2025-03-03
+categories: [Linux, Security]
+tags: [Linux, Security Tools, SOC, Blue Team, Command Line]
+excerpt: "A quick, practical walkthrough of the most useful Linux security and forensic commands for analysts and students."
+author: Sean Elggren
 ---
 
-## 📂 **File and Directory Management**
-
-Security teams often need to search logs, access files, and manage data for investigations.
-
-|Command|Purpose|Example|
-|---|---|---|
-|`ls`|List files in a directory|`ls -la` (long format, includes hidden files)|
-|`cat`|View file contents (e.g., logs)|`cat /var/log/auth.log`|
-|`grep`|Search for keywords or patterns|`grep "Failed password" /var/log/auth.log`|
-|`find`|Locate files based on criteria|`find /var/log -name "*.log"`|
-|`tail`|View last few lines of a file (live logs)|`tail -f /var/log/syslog`|
-|`cp`, `mv`, `rm`|Copy, move, and delete files|`cp file.txt /tmp/`|
+*By [Sean Elggren](https://www.linkedin.com/in/sean-m-elggren-3477271a5/)*
 
 ---
 
-## 📊 **Log Analysis and Monitoring**
+When I first started learning cybersecurity, I kept seeing long Linux commands in forums and books, but I had no idea what most of them did. Over time, I realized that knowing these commands is like having a toolbox for everything from log analysis to threat hunting.
 
-These commands help analysts parse and review logs from various sources, such as system logs, firewall logs, and IDS/IPS alerts.
+This isn’t meant to be a Linux manual. It’s a practical walkthrough of the commands I’ve actually used — or at least practiced — as I’ve studied for my Security+ and explored SOC tools.
 
-|Command|Purpose|Example|
-|---|---|---|
-|`journalctl`|View systemd logs (modern Linux distros)|`journalctl -xe`|
-|`awk`|Text processing (great for parsing logs)|`awk '{print $5}' /var/log/syslog`|
-|`sed`|Stream editor (modify text in files)|`sed 's/error/alert/g' /var/log/syslog`|
-|`cut`|Extract fields from text|`cut -d' ' -f1-3 /var/log/auth.log`|
-|`sort` & `uniq`|De-duplication and sorting|`cat auth.log|
+Here’s a breakdown of what I’ve found most useful in different areas of security work.
 
 ---
 
-## 🌐 **Network Analysis**
+## File and Directory Basics (Because You’ll Use These Constantly)
 
-Analysts monitor network connections for suspicious activity (part of threat hunting).
+Let’s start with the basics. If you're checking logs, chasing indicators of compromise, or investigating odd system behavior, you're probably poking around files and directories.
 
-|Command|Purpose|Example|
-|---|---|---|
-|`netstat`|Show network connections|`netstat -tuln` (listening ports)|
-|`ss`|Faster socket statistics (replacing netstat)|`ss -tuln`|
-|`ifconfig` / `ip`|Show network interface info|`ip a` (modern version of ifconfig)|
-|`ping`|Check network reachability|`ping 8.8.8.8`|
-|`traceroute`|Trace packet route to destination|`traceroute google.com`|
-|`tcpdump`|Packet capture (CLI Wireshark)|`tcpdump -i eth0 port 80`|
-|`whois`|Domain lookup|`whois example.com`|
-|`dig`|DNS queries|`dig example.com`|
+- `ls -la`  
+  Lists everything in the directory, including hidden files.
 
----
+- `cat /var/log/auth.log`  
+  Prints the contents of a file. Great for skimming logs.
 
-## 🔐 **User Management & Permissions**
+- `grep "Failed password" /var/log/auth.log`  
+  Filters for lines that match a keyword. Very useful when digging into SSH failures or brute force attempts.
 
-Monitoring account changes and privilege escalations.
+- `find /var/log -name "*.log"`  
+  Locates files that match a pattern.
 
-|Command|Purpose|Example|
-|---|---|---|
-|`who`|See logged-in users|`who`|
-|`w`|See user activity|`w`|
-|`last`|Review login history|`last`|
-|`passwd`|Change passwords|`passwd user`|
-|`sudo`|Run commands with elevated privilege|`sudo cat /etc/shadow`|
+- `tail -f /var/log/syslog`  
+  Streams the bottom of a log file live — super handy for watching real-time activity.
+
+- `cp`, `mv`, `rm`  
+  Copy, move, and delete files — just be careful with `rm`, especially as root.
 
 ---
 
-## 🚨 **System Security & Forensics**
+## Log Analysis: The Daily Grind in a SOC
 
-Helpful for investigating incidents, suspicious files, and system integrity.
+Reading logs is what most SOC analysts spend a lot of time doing. These commands help sort through the noise.
 
-|Command|Purpose|Example|
-|---|---|---|
-|`ps`|Process monitoring|`ps aux`|
-|`top` / `htop`|System resource monitoring|`htop`|
-|`df`|Check disk space usage|`df -h`|
-|`du`|Disk usage per directory/file|`du -sh /var/log`|
-|`stat`|File metadata (timestamps, permissions)|`stat /etc/passwd`|
-|`md5sum`, `sha256sum`|Hash file for integrity|`sha256sum suspiciousfile.bin`|
-|`file`|Identify file type|`file malware_sample.exe`|
-|`strings`|Extract readable text from binary|`strings malware_sample.exe`|
-|`lsof`|List open files (used by processes)|`lsof -i`|
+- `journalctl -xe`  
+  Shows recent system logs on distros that use systemd.
 
----
+- `awk '{print $5}' /var/log/syslog`  
+  Pulls specific fields from a file.
 
-## 🔧 **Process & Service Analysis**
+- `sed 's/error/alert/g' /var/log/syslog`  
+  Replaces words in a file (good for redacting or reformatting).
 
-Investigate suspicious processes or services.
+- `cut -d' ' -f1-3`  
+  Grabs selected columns — great for timestamps and IPs.
 
-|Command|Purpose|Example|
-|---|---|---|
-|`systemctl`|Manage services (modern systems)|`systemctl status sshd`|
-|`service`|Manage services (older systems)|`service sshd status`|
-|`kill` / `pkill`|Terminate processes|`kill -9 <PID>`|
+- `sort | uniq`  
+  Combines with other commands to clean up repeated lines or count events.
 
 ---
 
-## 📡 **Remote Access & File Transfer**
+## Network Monitoring and Threat Hunting
 
-Used in IR to collect artifacts from remote systems.
+If you're tracking suspicious traffic or investigating connections, this is your toolkit.
 
-|Command|Purpose|Example|
-|---|---|---|
-|`ssh`|Secure shell access|`ssh analyst@remotehost`|
-|`scp`|Secure file copy|`scp log.txt analyst@remotehost:/tmp/`|
-|`rsync`|Efficient file syncing|`rsync -av /data /backup`|
+- `netstat -tuln` or `ss -tuln`  
+  Shows open/listening ports.
 
----
+- `ip a`  
+  Displays all IP addresses and interfaces.
 
-## 📦 **Package & Tool Management**
+- `ping 8.8.8.8`  
+  Simple connectivity check.
 
-Important for installing forensic tools (like Wireshark, Snort, etc.)
+- `traceroute google.com`  
+  Maps the path packets take — useful for investigating delays or routing anomalies.
 
-|Command|Purpose|Example|
-|---|---|---|
-|`apt`, `yum`, `dnf`|Install packages|`apt install wireshark`|
-|`tar`|Archive extraction|`tar -xvf logs.tar.gz`|
+- `tcpdump -i eth0 port 80`  
+  Captures packets on a given interface and port. Great CLI alternative to Wireshark.
 
----
-
-## 🧰 **Security & Forensics-Specific Tools (Examples)**
-
-These tools are usually installed via package managers, but used heavily:
-
-|Tool|Purpose|
-|---|---|
-|`nmap`|Network scanning|
-|`wireshark` / `tshark`|Packet capture and analysis|
-|`clamav`|Open-source antivirus|
-|`chkrootkit`|Rootkit detection|
-|`lynis`|Security auditing|
-|`auditctl` / `ausearch`|System auditing|
+- `whois`, `dig`  
+  Domain info and DNS troubleshooting.
 
 ---
 
-# 🔎 **Practical Scenarios for SOC Analysts**
+## User and Account Activity
 
-Here are practical examples of these commands in action:
+You’ll use these when looking into user behavior or privilege abuse.
 
-|Scenario|Command(s) Example|
-|---|---|
-|Investigate brute force SSH login|`grep "Failed password" /var/log/auth.log`|
-|Check suspicious outbound connections|`netstat -anp|
-|Hash files for evidence collection|`sha256sum /tmp/suspect_file`|
-|Watch live log file for alerts|`tail -f /var/log/auth.log`|
-|Scan open ports on remote server|`nmap -sV -Pn target-ip`|
-|Capture network traffic for analysis|`tcpdump -i eth0 -w capture.pcap`|
+- `who`, `w`  
+  See who’s logged in and what they’re doing.
+
+- `last`  
+  View login history.
+
+- `passwd user`  
+  Change a user's password.
+
+- `sudo`  
+  Run a command with root privileges.
 
 ---
 
-# 🗂️ **Reference Materials**
+## System Security and Forensics Commands
 
-- [Linux Command Line Basics - Cybersecurity Edition (Cybersecurity Guide)](https://linuxcommand.org/)
+Dig into system integrity, check disk usage, and validate files.
+
+- `ps aux`, `top`, `htop`  
+  See what's running and using CPU/memory.
+
+- `df -h`, `du -sh`  
+  Check disk space and folder sizes.
+
+- `stat /etc/passwd`  
+  Get timestamps and permissions on a file.
+
+- `md5sum`, `sha256sum`  
+  Verify file integrity — crucial in malware investigations.
+
+- `file`, `strings`  
+  Identify file types and extract human-readable text from binaries.
+
+- `lsof -i`  
+  Lists open files or network connections.
+
+---
+
+## Services and Process Analysis
+
+Some processes hide as services, so these are great for checking their status.
+
+- `systemctl status sshd`  
+  For modern systems using systemd.
+
+- `service sshd status`  
+  For older systems.
+
+- `kill -9 <PID>`  
+  Forces a process to stop. Use with care.
+
+---
+
+## Remote Access and File Transfer
+
+These are great for incident response or pulling logs from a compromised machine.
+
+- `ssh analyst@remotehost`  
+  Connect to a remote system securely.
+
+- `scp log.txt analyst@remotehost:/tmp/`  
+  Securely copy files between systems.
+
+- `rsync -av /data /backup`  
+  Sync files or directories — useful for backups.
+
+---
+
+## Installing Tools and Unpacking Logs
+
+Most tools you'll use in security come from packages or tar files.
+
+- `apt install wireshark`  
+  Install software on Debian-based systems.
+
+- `tar -xvf logs.tar.gz`  
+  Extract compressed log archives.
+
+---
+
+## Some Security-Specific Tools I Recommend Trying
+
+These aren't installed by default, but they’re essential:
+
+- `nmap`  
+  Port scanning and network discovery.
+
+- `tshark`  
+  Terminal version of Wireshark.
+
+- `clamav`  
+  Free antivirus scanner.
+
+- `chkrootkit`  
+  Detects known rootkits.
+
+- `lynis`  
+  Security auditing tool.
+
+- `auditctl`, `ausearch`  
+  Audit log control and searching.
+
+---
+
+## A Few Real-World Examples
+
+Let’s make it practical.
+
+- Investigate SSH brute force attempts:  
+  `grep "Failed password" /var/log/auth.log`
+
+- Look for outbound connections:  
+  `netstat -anp`
+
+- Hash a file before collecting it as evidence:  
+  `sha256sum /tmp/suspect_file`
+
+- Watch log entries live during an event:  
+  `tail -f /var/log/auth.log`
+
+- Scan for open ports:  
+  `nmap -sV -Pn target-ip`
+
+- Capture raw network traffic:  
+  `tcpdump -i eth0 -w capture.pcap`
+
+---
+
+## Want to Practice?
+
+If you want to try these in a real environment, spin up a home lab. Tools like **Security Onion** or a DIY ELK Stack are great for ingesting and visualizing logs from Linux systems.
+
+---
+
+## More Resources
+
+- [Linux Command Line Basics - Cybersecurity Edition](https://linuxcommand.org/)
 - SANS Linux Security Cheat Sheet
-- [Cybersecurity Blue Team Linux Toolkit (GitHub)](https://github.com/trimstray/the-book-of-secret-knowledge)
+- [The Book of Secret Knowledge on GitHub](https://github.com/trimstray/the-book-of-secret-knowledge)
 
 ---
 
-# 💡 Pro Tip
+This list isn’t everything, but it’s more than enough to get started or build some confidence in a SOC-like environment. Whether you're studying for certs or just exploring what Linux can do, keep a terminal open and start typing.
 
-If you want to practice, consider setting up a **home lab** using a SIEM like **Security Onion** (which runs on Linux) or build a detection pipeline with ELK (Elasticsearch, Logstash, Kibana) and ingest logs from Linux systems. This will simulate real SOC workflows.
+If you’ve got other go-to commands, let me know. I’m still learning every day too.

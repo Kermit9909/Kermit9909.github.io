@@ -8,126 +8,106 @@ excerpt: "A practical guide addressing frequent Windows issues such as slow perf
 author: Sean Elggren
 ---
 
-*By [Sean Elggren](https://www.linkedin.com/in/sean-m-elggren-3477271a5/), IT Enthusiast | March 27, 2025*
-
-###### A practical guide addressing frequent Windows issues, such as slow performance, update failures, no network connection, or missing drivers. This article focuses on using built-in tools like Task Manager, Disk Cleanup, Windows Restore, Device Manager and commands such as: sfc /scannow, and ipconfig.
-
----
-This article is intended for anyone who is new to IT or just wanting to get their computer working to the best of its ability.  I started my IT journey a few years ago, and in hindsight I should have focused on Windows much more than I did at first. It is easy when studying for your CompTIA A+ certification to get excited about Linux, and all its amazing features -especially that it is free and open source- but the world runs on Windows. However, Windows has stepped its game up over the last couple years and there are a lot of cool features to learn.  Windows has a bunch of built-in tools—like Task Manager, Disk Cleanup, System Restore, and Device Manager.  Plus some incredibly useful CMD commands like ***sfc /scannow***, and ***ipconfig***. Let’s walk through how to use these features and tools.
-
-# 1. Task Manager
-
-Picture this: your laptop’s chugging along slower than a Monday morning, and you’re wondering what’s eating up all the juice. That’s when I pull up **Task Manager**, my go-to for sniffing out troublemakers. Just hit **<Ctrl + Shift + Esc>**—bam, it’s open—or right-click the taskbar and pick it from the menu.
-
-![Task Manager Screenshot](/assets/images/winblog/taskmanager.png)
-
-Ok, let's talk about a few important features in Task Manager.
-
-So **Processes** is the first tab that will pop up and it gives you a clear picture of what's going on with your system.  You can click at the top of each column (CPU, Memory, Disk, Network) to see what is consuming the most resources of each. 
-
-### When you need to use Processes:
-
- * Most common is troubleshooting a **frozen application**.  **<Right-Click\>** the application line and **End Task**. 
- * When you need to get an overview of the the system quickly.
-
- **Performance** is an amazing visual of the percentages you saw in Processes.  It gives real time computational statistics in a bar graph style that is easy to understand.  This is great to open up when you start your computer so you can see it in action.  When I can hear my computer running I like to go to **Performance** to see the statistics.  I have been that guy who has downloaded a malicious linux iso file.  I would hear my computer just running like crazy, and Task Manager helped me see that my CPU would just start throttling for no reason.  After putting the pieces of the puzzle together I realized that I probably had malware on my computer so I took appropriate action.  Also, if you are getting into running LLMs with [Ollama][1], just pick a model that has roughly 7 billion or more parameters (for my laptop at least) and watch it just max out your CPU!!!!!
-
- [1]: https://ollama.com/search
-
-### When you need to use Performance
-
- * Check CPU usage, uptime, speed, and specs.
- * Find out how much memory the system has, how much in use, memory cached and hardware form factors.
- * Disk transfer rate and capacity.
- * Ethernet IPv4 / IPv6 addresses, performance, transfer rates.
- * Wi-Fi throughput in real-time, network adapter info, connection type, and IP addresses.
- * Check the GPU (Ollama!) how much, and driver versions.
-
-### What is **App History** about, and will I ever use it? 
-
-Good question, I have never had to use App History personally.  However, it's possible that in a corporate environment would want to use the **App History** tab in Task Manager on Windows to monitor resource usage by apps over time. Mostly, for troubleshooting performance issues, identifying apps that consume excessive CPU, memory, or network resources, and diagnosing why a system might be running slowly. 
-
-### Lets move on...
-
-The ***Users*** tab in Task Manager is a quick way to see who’s logged in, and how much CPU, memory, or disk space they’re hogging —perfect for spotting a resource hog in a shared system. 
-
-The ***Details*** tab dives deeper, listing every process with PIDs and user accounts, letting you kill a stubborn app or confirm what’s running where. 
-
-Lastly, the ***Services*** tab shows background system tasks (like Windows Update), offering stop/start/restart options without leaving the window. However, if you **Right-Click** the service you can open it in Window's designated **Services** setting (services.msc)
-
-![Services Screenshot](/assets/images/winblog/services.png)
-
-Check out this quick video, [Microsoft’s Task Manager guide](https://learn.microsoft.com/en-us/shows/inside/task-manager) for more info.
-
-# 2. Device Manager
-
- For hardware troubleshooting, though, Device Manager still is the go to.  Just type Device Manager in the search bar from the desktop, or go to acces it by typing **devmgnt.msc** into the run command window.
-
- I once had my little brother sync his Meta Quest headset to my mother's PC and it completely took over the audio input and ouput controls.  My mother had an remote interview for a job and she asked me why she could not get audio and video to work on her PC.  So, I went to ***Device Manager*** as uninstalled all the Meta devices.  However, Meta removed her 'Microphone Array (Realtek(R) Audio), and Speaker (Realtek(r) Audio) for Device Manager!  Needless to say, this took some Windows troubleshooting skills and I was grateful for my training for my A+ cert.  I would have to go into ***Control Panel*** and enable all the devices from their so they would be recognized by **Device Manager** again.   
-
- ![Device Manager Screenshot](/assets/images/winblog/devicemanager.png)
-
-Bonus tip: Refresh the view with Action > Scan for hardware changes if something’s not showing up. Want to learn more? Microsoft’s [Device Manager](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager) guide has you covered.
-
-
-Now, if your PC feels like it’s drowning in digital clutter, **Disk Cleanup** is your broom and dustpan. I’ve let temporary files and old update leftovers pile up before—oops—and this tool sweeps them away. Press **<Win + R**>, type **<cmd cleanmgr>**, and hit Enter. Pick your main drive (usually `C:`), check off things like *Temporary Files* or *Recycle Bin*, and let it rip with *OK* and *Delete Files*.
-
-Bonus tip: run it as Administrator (right-click Command Prompt, choose *Run as Administrator*) to unlock extra cleanup power.
-
-![Disk Cleanup Pic](/assets/images/winblog/diskcleanup.png)
-
-Also, it is always good to check the Window's system files to make sure they are all working properly.  Windows has a system file checker command that will repair damaged Windows files.  These are the core operating system files, not applications.  Try this command:
-
-![SFC Scan Now](/assets/images/winblog/sfcscannow.png)
-
-
- Curious about the details? [Microsoft’s Disk Cleanup page](https://support.microsoft.com/en-us/windows/free-up-drive-space-in-windows-85529ccb-c365-490d-b548-831022bc9b32) breaks it down.
- Windows System File Checker Info: [Windows SFC](https://support.microsoft.com/en-us/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e)
-
+*By [Sean Elggren](https://www.linkedin.com/in/sean-m-elggren-3477271a5/)*
 
 ---
 
-Ever had Windows Update throw a tantrum and refuse to finish? Been there. That’s when I turn to **System Restore** to rewind the clock to happier times. Search *System Restore* in the Start menu, click **Create a restore point**, then hit the **System Restore** button. Pick a date before the update madness started, follow the prompts, and let your PC reboot to a better yesterday. It won’t touch your files, but it might delete recent apps, so heads up.
+If you're new to IT or just want to get your PC running smoother, this one’s for you.
 
-![Restore Point](/assets/images/winblog/restorepoint.png)
+When I first started learning about tech, I kind of brushed off Windows. I was more excited about Linux — the free, open-source stuff that makes you feel like a real hacker. But after working on a few systems and studying for my CompTIA A+, I realized that Windows is everywhere. And if you want to be helpful to real users (or even your own family), Windows is where the action is.
 
-If you’re wondering how it all works, [Microsoft’s System Restore guide](https://support.microsoft.com/en-us/windows/use-system-restore-to-recover-your-pc-0d3e9708-4e5e-4c1e-9f9e-8e6d8f7e8f8d) is a solid read.
+Let’s go over five tools and tricks built right into Windows that I use all the time.
 
-Then there’s the dreaded “No Internet” icon staring at you. When my Wi-Fi drops, I head straight to **Command Prompt** for some quick fixes. Open it as Administrator (search **cmd**, right-click, **Run as Administrator**), and try this:  
+---
 
-![ipconfig /release](/assets/images/winblog/iprelease.png)
+## 1. Task Manager: Your First Stop for “Why Is My PC So Slow?”
 
-![ipconfig /renew](/assets/images/winblog/iprenew.png)
+When your system feels like it's dragging — apps freezing, fans whirring, mouse stuttering — Task Manager is the first place I look. You can open it with `Ctrl + Shift + Esc` or just right-click the taskbar.
 
+Start with the **Processes** tab. Sort by CPU or Memory to see what’s hogging your resources. If an app freezes up, right-click it and select “End Task.” Simple fix.
 
+**Performance** is great for visuals — you’ll see your CPU, RAM, and network usage in real time. I once downloaded a sketchy Linux ISO and wondered why my laptop started sounding like it was taking off. Turned out the CPU was getting hammered. Task Manager helped me piece it together.
 
+If you're curious about real-time stats (especially if you're running things like [Ollama](https://ollama.com/search)), keep Performance open and watch your CPU max out.
 
-This will enable your DHCP server to issue you a new IP address. Which may help if you have an outdated or invalid IP address lease due to a DHCP glitch, your computer couldn't reach the DHCP server, or if another device accidentally got the same IP address. It happens.
+**Other tabs worth knowing**:
+- **Users**: See who’s logged in and what they’re using.
+- **Details**: Dive deep into what’s running, process IDs, and memory usage.
+- **Services**: View and manage background Windows tasks.
 
-In addition, **ipconfig** can address DNS issues as well. 
+Want a solid video walk-through? Check out [Microsoft’s guide to Task Manager](https://learn.microsoft.com/en-us/shows/inside/task-manager).
 
-Try this:
+---
 
-![ipconfig /flushdns](/assets/images/winblog/ipflushdns2.png)
+## 2. Device Manager: When Your Hardware Acts Up
 
-![ipconfig /registerdns](/assets/images/winblog/ipregister.png)
+This is where I go when USB devices don’t show up, audio stops working, or Bluetooth disappears.
 
+Open it by searching “Device Manager” or running `devmgmt.msc`.
 
-This will clear DNS caches, and usually works really well for browser issues.
+Real story: My little brother synced his Meta Quest headset to my mom’s PC. It hijacked all the audio inputs, and she couldn’t hear anything during an interview. I uninstalled the Meta drivers from Device Manager — but it also removed the real audio drivers. Not fun. I had to go into Control Panel to re-enable everything and get her PC talking again.
 
-Of course, you can go simple as well.  
+If something’s not showing up, go to **Action > Scan for hardware changes** to refresh it. Here’s a helpful link to [Microsoft’s Device Manager documentation](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager).
 
-<**Right-Click**> the Wi-Fi connection you are connected to and click **Forget** resign in and this will establish a new connection. 
+---
 
-![Forget Connection](/assets/images/winblog/forgetconnection.png)
+## 3. Disk Cleanup: Clean House
 
- Also, if you are having real issues go to **Control Panel** > **Network and Internet** > **Network Connections**, right-click your internet adapter and **Disable** than **Enable** to reset the network adapter.  
+Temporary files, update leftovers, and browser cache all pile up over time. Disk Cleanup is an easy way to free space.
 
-![Disable Adapter](/assets/images/winblog/adapter.png)
+Run `cleanmgr` from the Run box (`Win + R`) or the Command Prompt. Pick your main drive, check everything you want to clear (Temp files, Recycle Bin, etc.), then click OK.
 
-Hopefully, this information was informative and inspired someone to spend more time on Windows, learn CMD, feel more comfortable on a terminal, or at least made someone say to themselves, "If he can do it, so can I."  
+Want deeper cleaning? Run it as an admin.
 
-Happy Learning!!!
+Need more info? Microsoft has a detailed [Disk Cleanup guide here](https://support.microsoft.com/en-us/windows/free-up-drive-space-in-windows-85529ccb-c365-490d-b548-831022bc9b32).
+
+---
+
+## 4. System Restore: Undo a Bad Update
+
+Ever installed a Windows update and suddenly your PC refuses to boot right or apps stop working? Been there.
+
+System Restore lets you roll back your system without touching your personal files. Just search “System Restore,” click “Create a restore point,” and follow the prompts.
+
+Pick a date before the problem started and let Windows do its thing. You’ll keep your documents, but it might remove apps installed after that point.
+
+Here’s the official guide if you want to dive deeper: [Microsoft System Restore](https://support.microsoft.com/en-us/windows/use-system-restore-to-recover-your-pc-0d3e9708-4e5e-4c1e-9f9e-8e6d8f7e8f8d)
+
+---
+
+## 5. Networking Issues? Let’s Talk IPConfig
+
+You’ve probably seen it — the “No Internet” icon with the globe and slash. That’s when I go to **Command Prompt**.
+
+Open CMD as admin, then try these:
+
+```bash
+ipconfig /release
+ipconfig /renew
+These commands reset your IP lease, which is helpful if your router’s giving out duplicate addresses or the system can’t find one.
+
+Still no luck? Try fixing DNS:
+
+bash
+Copy code
+ipconfig /flushdns
+ipconfig /registerdns
+These will clear cached DNS entries and get your browser connecting again.
+
+If that fails, you can also:
+
+Forget your Wi-Fi network and reconnect
+
+Go to Control Panel > Network and Internet > Network Connections
+
+Disable and re-enable your network adapter
+
+Hopefully that gives you a good foundation. If you’re just starting out in IT or prepping for your A+ cert, knowing these tools inside and out will set you apart. And if you're just trying to make your PC run a little better — welcome to the club.
+
+If this helped, share it, bookmark it, or drop me a message. I’m still learning too — but every day I figure something new out, I try to write it down.
+
+Happy learning.
+
 
 
 
