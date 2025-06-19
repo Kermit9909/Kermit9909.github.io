@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "What’s New with the Windows App: Replacing Remote Desktop in 2025"
+date: 2025-05-23
 categories: [Windows, IT Support]
 tags: [Remote Desktop, Windows App, Microsoft 365, Azure Virtual Desktop, IT Help Desk]
 author_profile: true
@@ -64,6 +65,44 @@ The Windows App is available on **Windows, macOS, iOS, iPadOS, and web** (via su
 - **Optimized for Microsoft Teams**, reducing lag and connection drops.
 - **Modern UI** with support for dark mode, profiles, and multi-monitor setups.
 - **Cross-platform support**, even in a browser—great for BYOD workplaces.
+
+### ❌ Cons
+- **Not all features are RDP compatible**; some traditional Remote Desktop features are missing.
+- **Still evolving**—some users report occasional bugs or lack of polish.
+- **Learning curve** for users accustomed to RD.
+
+---
+
+## What IT Help Desk Professionals Should Know
+
+As hiring managers assess help desk candidates, knowledge of the Windows App will be increasingly important, especially in cloud-heavy Microsoft environments. Here’s what IT support pros should prepare for:
+
+- Familiarity with Windows 365 and Azure Virtual Desktop setups.
+- Ability to guide users through setup and troubleshooting of the Windows App.
+- Understanding compatibility issues and managing expectations during the transition.
+
+For organizations using **Microsoft Intune**, deployment and configuration of the Windows App can be managed centrally—another valuable skill for help desk techs.
+
+---
+
+## Final Thoughts
+
+While the Remote Desktop app served its purpose for decades, the move to the Windows App is a reflection of where IT is headed: **cloud-first, unified, and user-friendly**. If you're aiming for a role in IT support, this is the time to learn it, document it in your resume, and even demonstrate it in your lab or projects.
+
+---
+
+🛠 Want to try it out yourself?  
+Check out the [Windows App in the Microsoft Store](https://apps.microsoft.com/detail/windows-app/9nblggh4nns1)
+
+📚 Need to brush up on Azure Virtual Desktop?  
+Explore [Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/) for free training.
+
+---
+
+Got questions or want to connect with others in the IT support field?  
+Drop a comment below or reach out via [LinkedIn](https://www.linkedin.com).
+
+
 
 ### ❌ Cons
 - **Not all features are RDP compatible**; some traditional Remote Desktop features are missing.
